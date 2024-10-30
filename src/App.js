@@ -29,7 +29,7 @@ const Generate = () => {
             startValue = generateStartValue();
             incrementAmount = skipCountAmount[generateNumberInRange(0, 4)];
             skipCountChallenges.push(
-                <div>{startValue} , {startValue + incrementAmount} , {startValue + (2 * incrementAmount)} , ____ , ____ , ____ , ____</div>
+                <div className="skip-counting-row">{startValue} , {startValue + incrementAmount} , {startValue + (2 * incrementAmount)} , ____ , ____ , ____ , ____</div>
             );
         }
 
@@ -39,7 +39,7 @@ const Generate = () => {
     return (
         <div align="center">
             <div>
-                <button onClick={generateChallenges}>Generate Skip Counting Challenges</button>
+                <button className="generate-button" onClick={generateChallenges}>Generate Skip Counting Challenges</button>
             </div>
             <div>
                 {skipCountingChallenges.map((challenge, index) => (<>{challenge}</>))}
