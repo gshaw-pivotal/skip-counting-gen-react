@@ -24,13 +24,23 @@ const Generate = () => {
 
         let incrementAmount;
         let startValue;
+        let direction;
 
         for (let i = 0; i < numberOfChallenges; i++) {
             startValue = generateStartValue();
             incrementAmount = skipCountAmount[generateNumberInRange(0, 4)];
-            skipCountChallenges.push(
-                <div className="skip-counting-row">{startValue} , {startValue + incrementAmount} , {startValue + (2 * incrementAmount)} , ____ , ____ , ____ , ____</div>
-            );
+            direction = generateNumberInRange(0, 1);
+            if (direction === 0) {
+                //Count up
+                skipCountChallenges.push(
+                    <div className="skip-counting-row">{startValue} , {startValue + incrementAmount} , {startValue + (2 * incrementAmount)} , ____ , ____ , ____ , ____</div>
+                );
+            } else {
+                //Count down
+                skipCountChallenges.push(
+                    <div className="skip-counting-row">{startValue} , {startValue - incrementAmount} , {startValue - (2 * incrementAmount)} , ____ , ____ , ____ , ____</div>
+                );
+            }
         }
 
         setSkipCountingChallenges(skipCountChallenges);
